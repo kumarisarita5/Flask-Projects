@@ -1,15 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title> Get Customer Data</title>
+    <title> Print Customer Data</title>
 </head>
 <body>
     <h2> Hello {{ result.name }}!</h2>
-    <p>
-        Name: {{ result.name}} </br>
-        Email: {{ result.email }} </br>
-        Contact: {{ result.contact }} </br>
-        Company: {{ result.company }}
-    </p>
+    <table border= 1>
+       {% for key, value in result.items() %}
+        {% if key!= 'Submit' %}
+        <tr>
+            <th>{{ key }}</th>
+            <td>{{ value }}</td>
+        </tr>
+        {% endif  %}
+        {% endfor %}
+    </table>
 </body>
 </html>
